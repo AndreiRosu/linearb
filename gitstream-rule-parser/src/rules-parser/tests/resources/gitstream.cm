@@ -1,0 +1,29 @@
+# -*- mode: yaml -*-
+
+manifest:
+  version: 1.1
+
+automations:
+  the_expert_reviewer:
+    if: 
+      - true
+    run:
+      - action: add-comment@v1
+        args:
+          comment: {{ repo | expertReviewer(gt=null) }}
+  explain_expert_reviewer:
+    if: 
+      - true
+    run:
+      - action: add-comment@v1
+        args:
+          comment: |
+            {{ repo | explainExpertReviewer(gt=10) }}
+  etr_comment:
+    if:
+      - true
+    run:
+      - action: add-comment@v1
+        args:
+          comment: |
+            {{ branch | estimatedReviewTime }}

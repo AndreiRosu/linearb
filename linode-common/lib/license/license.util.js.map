@@ -1,0 +1,1 @@
+{"version":3,"file":"license.util.js","sourceRoot":"","sources":["../../src/license/license.util.ts"],"names":[],"mappings":";;;;;;AAAA,oDAAuB;AACvB,uDAA2D;AACpD,KAAK,UAAU,+BAA+B,CACnD,eAAe,EACf,SAAS;IAET,MAAM,OAAO,GAAG,MAAM,IAAA,wCAAsB,EAAC,EAAE,eAAe,EAAE,CAAC,CAAC;IAClE,OAAO,gBAAC,CAAC,GAAG,CAAC,OAAO,EAAE,WAAW,CAAC,IAAI,SAAS,CAAC;AAClD,CAAC;AAND,0EAMC"}

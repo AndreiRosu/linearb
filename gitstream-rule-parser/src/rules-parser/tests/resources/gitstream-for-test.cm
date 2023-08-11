@@ -1,0 +1,25 @@
+manifest:
+  version: 1.0
+checks:
+  content:
+    is:
+      images_only: {{ files | allImages }}
+      docs_only: {{ files | allDocs }}
+      tests_only: {{ files | allTests }}
+      small_pr: {{ branch | estimatedReviewTime < 5 }}
+      formatting: {{ source.diff.files | isFormattingChange }}
+      filter_ts: {{ source.diff.files | filter(attr='new_file', regex='\\.ts$') }}
+      logs_only_diff: {{ source.diff.files | matchDiffLines(regex='^\\+.*console\\.log', ignoreWhiteSpaces=true) | every }}
+      match_logs: {{ source.diff.files | match(attr='diff', term='console.log') | some }}
+      new_handler: {{ source.diff.files | map(attr='new_file') | match(term='handler.js') | some }}
+      js_in_tests: {{ files | filter(regex='\\.js$') | match(regex='tests\\/') | every }}
+      nope_test: {{ files | match(list=['src', 'dest']) | nope }}
+automations:
+  automation_name:
+    if:
+      - {{ checks.content.is.automation_name }}
+    run: 
+      - action: add-labels@v1
+        engine: gitstream
+        args:
+          labels: ["automation_name"]

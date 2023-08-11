@@ -1,0 +1,25 @@
+export declare enum Filters {
+    allExtensions = "allExtensions",
+    includes = "includes",
+    allPassRegex = "allPassRegex",
+    allPathIncludes = "allPathIncludes",
+    filterRegex = "filterRegex",
+    includesRegex = "includesRegex",
+    true = "true",
+    allFormattingChange = "allFormattingChange",
+    filterList = "filterList",
+    filterListRegex = "filterListRegex",
+    isEveryInListRegex = "isEveryInListRegex",
+    isSomeInList = "isSomeInList",
+    isSomeInListRegex = "isSomeInListRegex",
+    isStringIncludes = "isStringIncludes",
+    isStringIncludesRegex = "isStringIncludesRegex",
+    isEveryInList = "isEveryInList",
+    extractExtensions = "extractExtensions",
+    isEveryExtension = "isEveryExtension",
+    isEveryExtensionRegex = "isEveryExtensionRegex",
+    filterFileDiffRegex = "filterFileDiffRegex",
+    isEveryLineInFileDiffRegex = "isEveryLineInFileDiffRegex",
+    isSomeLineInFileDiffRegex = "isSomeLineInFileDiffRegex"
+}
+export declare const FILTER_HANDLERS: any;

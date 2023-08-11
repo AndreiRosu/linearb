@@ -1,0 +1,16 @@
+manifest:
+  version: 1.0
+rules:
+      asset_only: 
+        condition: {{ files | allExtensions(['png', 'svg', 'jpg', 'gif', 'css']) }}
+        actions: ['auto-approve']
+
+
+
+      docs_only: {{ files | allExtensions(['md', 'txt']) }}
+      tests_only: {{ files | allTests }}
+      xsmall: {{ branch.diff.size < 20 }}
+      small_or_less: {{ branch.diff.size < 100 }}
+      medium_or_less: {{ branch.diff.size < 200 }}
+      large: {{ branch.diff.size >= 200 }}
+      service: {{ files | regex('service') }}

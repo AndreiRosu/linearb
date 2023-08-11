@@ -1,0 +1,6 @@
+export const PROJECT_STATUS = {
+  EDITED: 'EDITED',
+  DELETED: 'DELETED',
+  NEW: 'NEW',
+  STEADY: 'STEADY'
+};

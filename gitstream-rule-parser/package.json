@@ -1,0 +1,77 @@
+{
+  "version": "1.0.137",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "version": "echo version && git add -A src",
+    "postversion": "echo postversion && git push && git push --tags"
+  },
+  "publishConfig": {
+    "registry": "https://linearb.jfrog.io/linearb/api/npm/npm-local/"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "@linearb/gitstream-rule-parser",
+  "author": "Oriel Zaken",
+  "module": "dist/gs-rule-parser.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/gs-rule-parser.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/gs-rule-parser.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^7.0.8",
+    "@types/jest": "^27.4.0",
+    "@types/js-yaml": "^4.0.5",
+    "@types/lodash": "^4.14.182",
+    "@types/node": "^18.6.4",
+    "@types/nunjucks": "^3.2.1",
+    "husky": "^8.0.1",
+    "jest": "^27.4.5",
+    "size-limit": "^7.0.8",
+    "ts-jest": "^27.1.2",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.4.0",
+    "typescript": "^3.9.10"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "js-yaml": "^4.1.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "nunjucks": "^3.2.3",
+    "prettier": "^2.7.1"
+  }
+}

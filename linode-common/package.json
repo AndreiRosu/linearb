@@ -1,0 +1,82 @@
+{
+  "name": "@linearb/linode-common",
+  "version": "2.1.234",
+  "description": "Shared node.js libraries and utils",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "/lib"
+  ],
+  "engines": {
+    "npm": ">=8.1.2",
+    "node": ">=16.13.2"
+  },
+  "scripts": {
+    "preinstall": "touch .npmrc; if ! grep -Fxq 'engine-strict=true' .npmrc; then echo '\nengine-strict=true' >> .npmrc; fi",
+    "test": "nyc --silent mocha -r ts-node/register 'src/**/*.spec.ts' --exit",
+    "test-build": "tsc && npm run test",
+    "build:copy-files": "echo build:copy-files &&  node scripts/copyBuildFiles.js",
+    "build": "echo build && tsc && npm run build:copy-files",
+    "prepare": "husky install",
+    "version": "echo version && git add -A src",
+    "postversion": "echo postversion && git push && git push --tags",
+    "eslint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linear-b/linode-common.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linear-b/linode-common/issues"
+  },
+  "homepage": "https://github.com/linear-b/linode-common#readme",
+  "publishConfig": {
+    "registry": "https://linearb.jfrog.io/linearb/api/npm/npm-local/"
+  },
+  "dependencies": {
+    "@linearb/linjs-common": "0.1.81",
+    "@linearb/linode-logger": "2.0.11",
+    "aws-sdk": "^2.1038.0",
+    "axios": "^0.21.1",
+    "bottleneck": "^2.19.5",
+    "crypto-js": "3.3.0",
+    "cls-hooked": "^4.2.2",
+    "express": "^4.18.1",
+    "express-http-context": "^1.2.4",
+    "express-validator": "6.3.0",
+    "http-status-codes": "^2.2.0",
+    "jsonpath": "^1.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "2.0.0",
+    "lodash": "^4.17.15",
+    "node-statsd": "^0.1.1",
+    "p-all": "^4.0.0",
+    "pg": "^8.8.0",
+    "pusher": "5.0.1",
+    "redis": "3.1.2",
+    "redis-mock": "^0.56.3",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/cls-hooked": "^4.2.1",
+    "@istanbuljs/nyc-config-typescript": "^1.0.1",
+    "@linearb/eslint-config-linearb": "1.0.101",
+    "@types/express": "^4.17.13",
+    "@types/lodash": "^4.14.172",
+    "@types/mocha": "^8.0.0",
+    "@types/node": "16.11.45",
+    "@types/redis": "4.0.11",
+    "@types/sinon": "^7.0.5",
+    "chai": "4.2.0",
+    "fs-extra": "^7.0.1",
+    "husky": "^7.0.4",
+    "mocha": "^7.1.2",
+    "nyc": "^15.0.1",
+    "sinon": "7.1.1",
+    "sqlstring": "2.3.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  }
+}
